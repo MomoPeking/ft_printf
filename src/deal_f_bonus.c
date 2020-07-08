@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deal_f_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Amber <Amber@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qdang <qdang@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 08:13:12 by Amber             #+#    #+#             */
-/*   Updated: 2020/04/27 13:26:47 by Amber            ###   ########.fr       */
+/*   Updated: 2020/07/06 20:06:26 by qdang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static int		fl_length(t_info *s, double nbr)
 			nbrlen += s->prec + 1;
 	}
 	if (s->flag[PLUS] == '1' && nbr >= 0)
+		nbrlen++;
+	if (s->flag[SPACE] == '1' && s->flag[PLUS] == '0' && nbr >= 0)
 		nbrlen++;
 	if (nbr < 0)
 		nbrlen++;

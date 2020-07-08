@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   output_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Amber <Amber@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qdang <qdang@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 13:40:59 by Amber             #+#    #+#             */
-/*   Updated: 2020/04/27 13:41:57 by Amber            ###   ########.fr       */
+/*   Updated: 2020/07/06 20:06:18 by qdang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void		ft_putf(t_info *s, double nbr, int nbrlen)
 	int		declen;
 
 	declen = 0;
-	if (s->flag[PLUS] == '1' || nbr < 0)
+	if (s->flag[PLUS] == '1' || nbr < 0 || (s->flag[SPACE] == '1' && nbr >= 0))
 		declen = -1;
 	if (nbr < 0)
 		nbr *= -1;

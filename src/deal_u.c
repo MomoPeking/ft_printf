@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deal_u.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Amber <Amber@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qdang <qdang@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 19:42:43 by qdang             #+#    #+#             */
-/*   Updated: 2020/04/23 22:05:14 by Amber            ###   ########.fr       */
+/*   Updated: 2020/07/06 14:10:03 by qdang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static int		length(t_info *s, unsigned long long nbr)
 	return (nbrlen);
 }
 
-static t_info	*deal_unsigned_int_3(t_info *s, int nbrlen, int z)
+static t_info	*deal_unsigned_int_3
+	(t_info *s, unsigned long long nbr, int nbrlen, int z)
 {
 	s->mfw++;
 	if (s->flag[ZERO] == '1' && s->flag[MINUS] != '1' && z == 0)
@@ -41,7 +42,7 @@ static t_info	*deal_unsigned_int_3(t_info *s, int nbrlen, int z)
 	}
 	else
 	{
-		if (s->point != 1)
+		if (s->point != 1 || nbr != 0)
 			while (--s->mfw > nbrlen + z)
 				ft_putchar(' ');
 		else
@@ -54,7 +55,7 @@ static t_info	*deal_unsigned_int_3(t_info *s, int nbrlen, int z)
 static t_info	*deal_unsigned_int_2
 	(t_info *s, unsigned long long nbr, int nbrlen, int z)
 {
-	if (s->flag[MINUS] == '1' && s->point != 1)
+	if (s->flag[MINUS] == '1' && (s->point != 1 || nbr != 0))
 	{
 		ft_putnchar('0', z);
 		ft_putui(nbr);
@@ -64,8 +65,8 @@ static t_info	*deal_unsigned_int_2
 	if (s->mfw > nbrlen && s->mfw > s->prec)
 		s->len += s->mfw - nbrlen;
 	if (s->mfw > nbrlen)
-		s = deal_unsigned_int_3(s, nbrlen, z);
-	if (s->flag[MINUS] != '1' && s->point != 1)
+		s = deal_unsigned_int_3(s, nbr, nbrlen, z);
+	if (s->flag[MINUS] != '1' && (s->point != 1 || nbr != 0))
 	{
 		ft_putnchar('0', z);
 		ft_putui(nbr);

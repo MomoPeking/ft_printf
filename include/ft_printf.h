@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Amber <Amber@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qdang <qdang@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 19:39:48 by qdang             #+#    #+#             */
-/*   Updated: 2020/04/27 13:49:19 by Amber            ###   ########.fr       */
+/*   Updated: 2020/07/07 17:31:30 by qdang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-# define BONUS		1
+# define BONUS		0
 
 # define MINUS		0
 # define ZERO		1
@@ -38,7 +38,7 @@ typedef	struct		s_info
 	int			mfw;
 	int			prec;
 	char		flag[5];
-	char		length[5];
+	char		length[4];
 	int			signal;
 	int			point;
 }					t_info;
@@ -54,6 +54,7 @@ t_info				*deal_decimal_integer(t_info *s);
 t_info				*deal_unsigned_int(t_info *s);
 t_info				*deal_hexadecimal(t_info *s);
 t_info				*deal_percentage(t_info *s);
+void				clean_flag();
 void				di_width(t_info *s, long long nbr, int nbrlen, int z);
 void				ft_putll(long long i);
 void				ft_putui(unsigned long long i);

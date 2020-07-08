@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deal_input_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Amber <Amber@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qdang <qdang@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 08:03:13 by Amber             #+#    #+#             */
-/*   Updated: 2020/04/27 13:45:59 by Amber            ###   ########.fr       */
+/*   Updated: 2020/07/06 20:56:22 by qdang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ static t_info	*deal_length(t_info *s)
 
 static t_info	*deal_flag(t_info *s)
 {
-	while (*s->fm == '-' || *s->fm == '0')
+	clean_flag(s);
+	while (*s->fm == '-' || *s->fm == '0' || *s->fm == '#' ||
+		*s->fm == ' ' || *s->fm == '+')
 	{
 		if (*s->fm == '-')
 			s->flag[MINUS] = '1';

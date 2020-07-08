@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Amber <Amber@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qdang <qdang@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 08:41:29 by qdang             #+#    #+#             */
-/*   Updated: 2020/04/27 13:03:29 by Amber            ###   ########.fr       */
+/*   Updated: 2020/07/06 20:56:28 by qdang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
+
+void	clean_flag(t_info *s)
+{
+	s->flag[MINUS] = '0';
+	s->flag[ZERO] = '0';
+	s->flag[HASH] = '0';
+	s->flag[SPACE] = '0';
+	s->flag[PLUS] = '0';
+}
 
 int		ft_printf(const char *restrict format, ...)
 {

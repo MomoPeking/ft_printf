@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deal_input.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Amber <Amber@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qdang <qdang@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 13:01:25 by Amber             #+#    #+#             */
-/*   Updated: 2020/04/27 13:46:05 by Amber            ###   ########.fr       */
+/*   Updated: 2020/07/06 20:56:09 by qdang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ t_info			*deal_precision(t_info *s)
 
 static t_info	*deal_flag(t_info *s)
 {
+	clean_flag(s);
 	while (*s->fm == '-' || *s->fm == '0')
 	{
 		if (*s->fm == '-')
